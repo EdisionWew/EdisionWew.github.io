@@ -65,8 +65,28 @@ git是一个版本控制工具，而github是一个代码托管系统，二者�
     git push origin :refs/tags/v1.0 //删除远程名为v1.0的tag
     git push origin v1.0 //将名为v1.0的tag推到远程服务端
     git checkout v1.0 //切换当前的代码版本到某个tag
+
 #### git添加分支
 
     git branch //查看当前所在分支
     git checkout branchname //切换代码到某一个分支下
     git branch -d branchname //删除名为branchname的分支
+
+#### git 添加子repo
+
+```
+git submodule add git://github.com/example/example.git rack //添加example子repo并且重新命名为rack
+git submodule init //进行子repo的初始化
+git submodule update //从子项目中抓取所有数据
+```
+
+#### git 删除子repo
+
+```
+git rm --cached moduleA
+rm -rf moduleA
+vi .gitmodules //删除对应的子repo
+vim .git/config //删除对应的配置
+rm -rf ./git/module/moduleA
+git push origin master
+```
